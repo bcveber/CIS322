@@ -1,0 +1,8 @@
+<form method="POST" action="/api/login">
+	<p>Enter username and password to login</p>
+	{{form.csrf_token}}
+	<div> {{form.username.label}}: {{form.username()}} </div>
+    <div> {{form.password.label}}: {{form.password()}} </div>
+    <div> {{form.remember.label}}: {{form.remember}} </div>
+    <div> <input type="submit" value="Login"> </div>
+</form>

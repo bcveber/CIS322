@@ -1,0 +1,3 @@
+Author: Brian Veber, Michal Young for initial version of this code
+Contact: bveber@uoregon.edu
+Description: This program, with the help of flask and ajax, calculates ACP controle times. It is an attempt to duplicate the calculator found at https://rusa.org/octime_acp.html. You can find the calculator on localhost. From there, you can put in start times and dates, and your overall distance, and your intervals. Ajax implementation allows you to see the open and close times for these intervals immediately. More information about the algorithm can be found at https://rusa.org/pages/acp-brevet-control-times-calculator

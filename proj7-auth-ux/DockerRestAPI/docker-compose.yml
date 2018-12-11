@@ -1,0 +1,35 @@
+version: '3'  # version of compose format 
+
+services:
+  laptop-service:
+    build: ./laptop  
+    volumes:
+      - ./laptop:/usr/src/app 
+    ports:
+      - 5001:80  # host:container
+    depends_on:
+      - web #needs web to run properly like website/laptop-service below
+
+  website:
+    image: php:apache  
+    volumes:
+      - ./website:/var/www/html 
+    ports:
+      - 5000:80  # host:container
+    depends_on:
+      - laptop-service  # website is not going to work unless laptop-service is running
+
+#essentially merging our docker-compose file from proj5 with this one,
+#but we need to reference our folder DockerMongo that its in on this project
+#so that is added in here
+  web:
+    build: ./DockerMongo
+    command: python -u app.py
+    ports:
+     - "5002:5000" #our calculator will be on 5002
+    volumes:
+     - ./DockerMongo:/todo
+    links:
+     - db
+  db:
+    image: mongo:3.0.2
